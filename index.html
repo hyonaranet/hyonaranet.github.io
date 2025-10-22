@@ -39,7 +39,11 @@ h1, h2, h3, p {
 a{color:var(--pri);text-decoration:none}
 a:hover{text-decoration:underline}
 li {margin-bottom: 1em; line-height: 1.6;}
-.wrap{max-width:var(--w);margin:0 auto;padding:0 20px}
+.wrap{
+  max-width:1400px; /* ← PC에서 여유 있게 */
+  margin:0 auto;
+  padding:0 20px;
+}
 
 /* ==== HEADER ==== */
 header{
@@ -57,6 +61,8 @@ header{
   justify-content:space-between;
   height:100px;
   padding:0 10px;
+  flex-wrap:nowrap;     /* ✅ 줄바꿈 방지 */
+  overflow-x:auto;      /* ✅ 화면 좁을 때 가로 스크롤 허용 */
 }
 
 .brand{
@@ -69,8 +75,9 @@ header{
 .brand span{font-size:22px;font-weight:800;color:var(--acc);}
 
 nav.menu {
-  display: flex;
-  gap: 10px;
+  display:flex;
+  gap:10px;
+  flex-wrap:nowrap;     /* ✅ 메뉴 줄바꿈 금지 */
 }
 nav.menu a{
   color:var(--fg);
@@ -219,11 +226,14 @@ footer{padding:40px 0;border-top:1px solid var(--bd);color:var(--mut);background
 
 </head>
 <body>
+  <a id="top"></a>
   <header>
     <div class="wrap nav">
       <div class="brand">
-        <img src="https://i.ifh.cc/10F7oX.jpg" alt="효나라 로고">
-        <span>효나라방문요양센터</span>
+         <a href="#top" class="brand">
+            <img src="https://i.ifh.cc/10F7oX.jpg" alt="효나라 로고">
+            <span>효나라방문요양센터</span>
+          </a>
       </div>
 
       <button class="menu-toggle" aria-label="메뉴 열기">
@@ -402,26 +412,33 @@ footer{padding:40px 0;border-top:1px solid var(--bd);color:var(--mut);background
     </section>
   </main>
   
-    <script>
-      const toggle = document.querySelector('.menu-toggle');
-      const menu = document.querySelector('nav.menu');
-    
-      // ✅ 모바일 디바이스 감지
-      function isMobileDevice() {
-        return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
-               || window.innerWidth <= 768;
-      }
-    
-      if (isMobileDevice()) {
-        toggle.addEventListener('click', () => {
-          toggle.classList.toggle('active');
-          menu.classList.toggle('show');
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('nav.menu');
+  
+    function isMobileDevice() {
+      return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+             || window.innerWidth <= 768;
+    }
+  
+    if (isMobileDevice()) {
+      toggle.addEventListener('click', () => {
+        toggle.classList.toggle('active');
+        menu.classList.toggle('show');
+      });
+  
+      // ✅ 메뉴 항목 클릭 시 자동 닫힘 기능
+      menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          menu.classList.remove('show');
+          toggle.classList.remove('active');
         });
-      } else {
-        // 데스크톱에서는 항상 메뉴 표시
-        menu.classList.add('show');
-      }
-    </script>
+      });
+    } else {
+      menu.classList.add('show');
+    }
+  </script>
+
   </body>
 </html>
   
