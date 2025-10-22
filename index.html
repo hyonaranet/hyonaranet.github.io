@@ -37,8 +37,20 @@ h1, h2, h3, p {
 }
 
 *{box-sizing:border-box}
-a{color:var(--pri);text-decoration:none}
-a:hover{text-decoration:underline}
+
+a.brand, 
+.brand a {
+  text-decoration: none;
+  color: inherit; /* 기본 색상 유지 */
+  transition: color 0.3s ease; /* 부드럽게 색상 전환 */
+}
+
+/* 마우스 올렸을 때 색상 밝게 */
+a.brand:hover,
+.brand a:hover {
+  color: #22c55e; /* 밝은 초록 (#16a34a보다 약간 더 밝음) */
+}
+  
 li {margin-bottom: 1em; line-height: 1.6;}
 .wrap{
   max-width:1400px; /* ← PC에서 여유 있게 */
@@ -281,13 +293,11 @@ footer{padding:40px 0;border-top:1px solid var(--bd);color:var(--mut);background
   <a id="top"></a>
 <header>
   <div class="wrap nav">
-    <a href="https://hyonara.com/" class="brand">
-      <img src="https://i.ifh.cc/10F7oX.jpg" alt="효나라 로고">
-      <div class="brand-text">
-        <span class="brand-name">효나라방문요양센터</span>
-        <span class="phone">032) 715-8389</span>
-      </div>
-    </a>
+    <img src="https://i.ifh.cc/10F7oX.jpg" alt="효나라 로고">
+    <div class="brand-text">
+      <span class="brand-name"><a href="https://hyonara.com/" class="brand">효나라방문요양센터</a></span>
+      <span class="phone">032) 715-8389</span>
+    </div>
   </div>
   
     <!-- ✅ 메뉴와 햄버거 버튼 -->
