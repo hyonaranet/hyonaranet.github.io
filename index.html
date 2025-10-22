@@ -267,6 +267,76 @@
     .lead{font-size:16px;}
     .social-links{flex-direction:column;gap:8px;}
   }
+  
+    /* ==== 햄버거 메뉴 버튼 ==== */
+  .menu-toggle {
+    display: none; /* 기본은 숨김 (데스크톱에서 안 보이게) */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  .menu-toggle span {
+    display: block;
+    height: 3px;
+    background: var(--acc);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  
+  /* 토글된 상태(X자 모양) */
+  .menu-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  
+  /* ==== 모바일 메뉴 숨김 ==== */
+  nav.menu {
+    display: flex;
+    gap: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: flex;
+    }
+  
+    nav.menu {
+      display: none;
+      position: absolute;
+      top: 100px; /* 헤더 아래 */
+      right: 0;
+      left: 0;
+      background: #fff;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      padding: 20px 0;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      border-top: 1px solid var(--bd);
+      z-index: 40;
+    }
+  
+    nav.menu.show {
+      display: flex; /* 토글 시 표시 */
+    }
+  
+    nav.menu a {
+      font-size: 17px;
+      padding: 8px 0;
+    }
+  }
+
 </style>
 
 </head>
@@ -277,6 +347,11 @@
         <img src="https://i.ifh.cc/10F7oX.jpg" alt="효나라 로고">
         <span>효나라방문요양센터</span>
       </div>
+
+      <button class="menu-toggle" aria-label="메뉴 열기">
+        <span></span><span></span><span></span>
+      </button>
+      
       <nav class="small">
         <a href="#about">센터소개</a>
         <a href="#care">방문요양</a>
@@ -449,4 +524,30 @@
         </div>
       </div>
     </section>
+  </main>
+  
+    <script>
+      const toggle = document.querySelector('.menu-toggle');
+      const menu = document.querySelector('nav.menu');
+    
+      // ✅ 모바일 디바이스 감지
+      function isMobileDevice() {
+        return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+               || window.innerWidth <= 768;
+      }
+    
+      if (isMobileDevice()) {
+        toggle.addEventListener('click', () => {
+          toggle.classList.toggle('active');
+          menu.classList.toggle('show');
+        });
+      } else {
+        // 데스크톱에서는 항상 메뉴 표시
+        menu.classList.add('show');
+      }
+    </script>
+  </body>
+</html>
+  
+    
  
