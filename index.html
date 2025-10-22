@@ -116,9 +116,31 @@ nav.menu a{
 nav.menu a.cta{background:var(--pri);color:#fff;}
 nav.menu a.cta:hover{text-decoration:none;opacity:.95;}
 
-.section {
-  padding: 60px 0;
+.sec {
+  padding: 100px 0;            /* ✅ 섹션 간 위아래 간격 늘림 */
   border-top: 1px solid var(--bd);
+}
+
+.sec h2 {
+  font-size: 28px;
+  margin-bottom: 24px;         /* ✅ 제목 아래 여백 */
+  color: var(--acc);
+}
+
+.sec h4 {
+  margin-bottom: 18px;         /* ✅ 소제목과 본문 사이 띄움 */
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.sec p,
+.sec ul,
+.sec ol {
+  margin-bottom: 24px;         /* ✅ 문단 간 간격 */
+}
+
+.sec ul li {
+  margin-bottom: 12px;         /* ✅ 리스트 간격 */
 }
   
 /* ==== HERO ==== */
