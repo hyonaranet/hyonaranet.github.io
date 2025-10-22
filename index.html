@@ -336,6 +336,35 @@
       padding: 8px 0;
     }
   }
+  @media (max-width: 768px) {
+  /* ✅ 모바일일 때 기본 메뉴 완전 숨김 */
+  nav.menu {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    position: absolute !important;
+  }
+
+  /* ✅ 햄버거 누르면 나타나게 */
+  nav.menu.show {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: absolute !important;
+    top: 100px;
+    right: 0;
+    left: 0;
+    background: #fff;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 0;
+    border-top: 1px solid var(--bd);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    z-index: 9999;
+  }
+}
+
 
 </style>
 
