@@ -60,8 +60,8 @@ header{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  height:100px;
-  padding:0 10px;
+  height: 120px;            /* 헤더 높이 늘림 */
+  padding: 0 20px;
   flex-wrap:nowrap;     /* ✅ 줄바꿈 방지 */
   overflow-x:auto;      /* ✅ 화면 좁을 때 가로 스크롤 허용 */
 }
@@ -72,10 +72,18 @@ header{
   gap:10px;
   font-weight:800;
 }
-.brand img{width:80px;height:80px;border-radius:8px;object-fit:cover;}
+  
+.brand img {
+  width: 100px;             /* ✅ 이미지 크기 키움 */
+  height: 100px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+  
 .brand-text {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   line-height: 1.2;
 }
 
