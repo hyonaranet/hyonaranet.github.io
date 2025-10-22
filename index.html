@@ -56,34 +56,33 @@ header{
   border-bottom:1px solid var(--bd);
 }
 
-.nav{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  height: 120px;            /* 헤더 높이 늘림 */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 120px;
   padding: 0 20px;
-  flex-wrap:nowrap;     /* ✅ 줄바꿈 방지 */
-  overflow-x:auto;      /* ✅ 화면 좁을 때 가로 스크롤 허용 */
+  flex-wrap: nowrap;
+  overflow-x: auto;
 }
 
-.brand{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-weight:800;
+.brand {
+  display: flex;
+  align-items: center;  /* 로고와 텍스트 수직 중앙 정렬 */
+  gap: 12px;
 }
-  
+
 .brand img {
-  width: 100px;             /* ✅ 이미지 크기 키움 */
+  width: 100px;
   height: 100px;
   border-radius: 8px;
   object-fit: cover;
 }
-  
+
 .brand-text {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: column;     /* ✅ 텍스트를 세로 정렬 */
+  justify-content: center;    /* 로고 높이에 맞춰 수직 중앙 정렬 */
   line-height: 1.2;
 }
 
@@ -94,14 +93,11 @@ header{
   text-decoration: none;
 }
 
-.brand-name:hover {
-  opacity: 0.8;
-}
-
 .phone {
-  font-size: 15px;
+  font-size: 15px;           /* ✅ 번호 작게 */
+  color: var(--fg-sub);
   font-weight: 600;
-  color: var(--acc);
+  margin-top: 4px;           /* 이름과 간격 살짝 */
 }
 
 nav.menu {
@@ -261,32 +257,32 @@ footer{padding:40px 0;border-top:1px solid var(--bd);color:var(--mut);background
 </head>
 <body>
   <a id="top"></a>
-  <header>
-      <div class="wrap nav">
-        <div class="brand">
-          <img src="https://i.ifh.cc/10F7oX.jpg" alt="효나라 로고">
-          <div class="brand-text">
-            <a href="#top" class="brand-name">효나라방문요양센터</a>
-            <span class="phone">032) 715-8389</span>
-          </div>
-        </div>
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <img src="https://i.ifh.cc/10F7oX.jpg" alt="효나라 로고">
+      <div class="brand-text">
+        <a href="#top" class="brand-name">효나라방문요양센터</a>
+        <span class="phone">032) 715-8389</span>
       </div>
-
-      <button class="menu-toggle" aria-label="메뉴 열기">
-        <span></span><span></span><span></span>
-      </button>
-      
-      <nav class="menu small">
-        <a href="#about">센터소개</a>
-        <a href="#care">방문요양</a>
-        <a href="#bath">방문목욕</a>
-        <a href="#welfare">복지용구</a>
-        <a href="#insurance">장기요양보험</a>
-        <a href="#pricing">이용요금</a>
-        <a href="#contact" class="cta">상담하기</a>
-      </nav>
     </div>
-  </header>
+
+    <!-- ✅ 메뉴와 햄버거 버튼을 nav 내부로 이동 -->
+    <button class="menu-toggle" aria-label="메뉴 열기">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="menu small">
+      <a href="#about">센터소개</a>
+      <a href="#care">방문요양</a>
+      <a href="#bath">방문목욕</a>
+      <a href="#welfare">복지용구</a>
+      <a href="#insurance">장기요양보험</a>
+      <a href="#pricing">이용요금</a>
+      <a href="#contact" class="cta">상담하기</a>
+    </nav>
+  </div>
+</header>
 
   <main>
     <section class="hero">
