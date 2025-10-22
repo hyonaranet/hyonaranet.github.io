@@ -72,19 +72,7 @@ header{
   gap: 12px;
 }
 
-.brand img {
-  width: 100px;
-  height: 100px;
-  border-radius: 12px;            /* ✅ 모서리 둥글게 — 부드러운 인상 */
-  object-fit: cover;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.08); /* ✅ 은은한 그림자 */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* ✅ hover 시 부드러운 애니메이션 */
-}
-
-.brand img:hover {
-  transform: scale(1.03);         /* ✅ 살짝 커지며 생동감 */
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12); /* ✅ hover 시 그림자 진하게 */
-}
+.brand img { width: 100px; height: 100px; border-radius: 8px; object-fit: cover; }
 
 .brand-text {
   display: flex;
