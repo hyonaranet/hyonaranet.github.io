@@ -73,7 +73,28 @@ header{
   font-weight:800;
 }
 .brand img{width:80px;height:80px;border-radius:8px;object-fit:cover;}
-.brand span{font-size:22px;font-weight:800;color:var(--acc);}
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.brand-name {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--acc);
+  text-decoration: none;
+}
+
+.brand-name:hover {
+  opacity: 0.8;
+}
+
+.phone {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--acc);
+}
 
 nav.menu {
   display:flex;
@@ -233,13 +254,14 @@ footer{padding:40px 0;border-top:1px solid var(--bd);color:var(--mut);background
 <body>
   <a id="top"></a>
   <header>
-    <div class="wrap nav">
-      <div class="brand">
-         <a href="#top" class="brand">
-            <img src="https://i.ifh.cc/10F7oX.jpg" alt="효나라 로고">
-            <span>효나라방문요양센터</span>
-          </a></br>
-          <span class="phone"> 032) 715-8389 </span>
+      <div class="wrap nav">
+        <div class="brand">
+          <img src="https://i.ifh.cc/10F7oX.jpg" alt="효나라 로고">
+          <div class="brand-text">
+            <a href="#top" class="brand-name">효나라방문요양센터</a>
+            <span class="phone">032) 715-8389</span>
+          </div>
+        </div>
       </div>
 
       <button class="menu-toggle" aria-label="메뉴 열기">
